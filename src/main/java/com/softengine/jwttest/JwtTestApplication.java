@@ -20,8 +20,8 @@ public class JwtTestApplication {
     @PostConstruct
     public void initUser(){
         List<User> users = Stream.of(
-                new User(101,"Mehmet","Onar","mmoanr2@m.com"),
-                new User(10,"dudu","Onar","mmoanr2@m.com")
+                new User(1,"Mehmet","Onar","mmoanr2@m.com"),
+                new User(2,"dudu","Onar","mmoanr2@m.com")
         ).collect(Collectors.toList());
         userRepository.saveAll(users);
     }
