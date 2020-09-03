@@ -3,11 +3,14 @@ package com.softengine.jwttest.controller;
 import com.softengine.jwttest.entity.AuthRequest;
 import com.softengine.jwttest.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 public class WelcomeController {
 
     @Autowired private JwtUtil jwtUtil;

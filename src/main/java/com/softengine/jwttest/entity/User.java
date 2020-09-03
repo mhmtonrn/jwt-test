@@ -1,22 +1,31 @@
 package com.softengine.jwttest.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(schema = "SIVTBD01" ,name = "USER_TBL")
+@Table(schema = "U411515" ,name = "USER_TBL")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class User {
     @Id
     private int id;
     private String userName;
     private String password;
     private String email;
+
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
+    private List<Privilege> privileges;
+
+    @Override
+    public String toString() {
+        return "User{}";
+    }
 }
