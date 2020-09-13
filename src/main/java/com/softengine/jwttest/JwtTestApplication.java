@@ -38,12 +38,12 @@ public class JwtTestApplication {
         Role r1 = new Role();
         r1.setId(1);
         r1.setName("ADMIN");
-        r1.setDesc("ADMIN");
+        r1.setDesci("ADMIN");
 
         Role r2 = new Role();
         r2.setId(2);
         r2.setName("USER");
-        r2.setDesc("USER");
+        r2.setDesci("USER");
 
 
         roleRepository.save(r1);

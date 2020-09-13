@@ -16,11 +16,8 @@ public class Role {
     @Id
     private int id;
     private String name;
-    private String desc;
+    private String desci;
 
-//    @ManyToMany(mappedBy = "roles")
-//    private Collection<User> users;
-//
     @OneToMany(mappedBy = "role",cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     private Collection<Privilege> privileges;
 

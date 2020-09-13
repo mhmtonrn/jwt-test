@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,14 +32,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 //    }
     //endregion
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private UserRepository service;
+    private final UserRepository service;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
+
+    public CustomUserDetailsService(UserRepository userRepository, UserRepository service, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.service = service;
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     @Transactional

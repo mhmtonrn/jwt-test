@@ -2,22 +2,22 @@ server:
   port: 8080
 
 spring:
-  h2:
-    console:
-      enabled: true
   data:
     jdbc:
       repositories:
         enabled: true
   datasource:
-    username: u411515
-    password: 12345
-    url: jdbc:db2://10.128.119.101:50000/SSYDB
-    driver-class-name: com.ibm.db2.jcc.DB2Driver
+    username: postgres
+    password: mysecretpassword
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 app:
   trust-store: classpath:cacerts
