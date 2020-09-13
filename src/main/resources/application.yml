@@ -9,7 +9,7 @@ spring:
   datasource:
     username: postgres
     password: mysecretpassword
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://192.168.1.40:5432/postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
